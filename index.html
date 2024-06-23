@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <div class="tab-bar" id="top-nav">
+            <a href="#" data-theme="1" class="tab-bar_item nav-icon" id="exerciseBtn" aria-label="Exercise">
+                <img src="🦆 icon _gym_.png" alt="Exercise">
+            </a>
+            <a href="#" data-theme="2" class="tab-bar_item nav-icon" id="statsBtn" aria-label="Stats">
+                <img src="🦆 icon _notes_.png" alt="Stats">
+            </a>
+            <a href="#" data-theme="3" class="tab-bar_item nav-icon" id="profileBtn" aria-label="Profile">
+                <img src="🦆 icon _profile circled_.png" alt="Profile">
+            </a>
+            <div class="tab-bar_circle-indicator"></div>
+        </div>
+        <main id="content">
+            <div id="exerciseSection" class="section active">
+                <header id="workout-type">
+                    <button id="cardioBtn" class="type-btn active">Cardio</button>
+                    <button id="strengthBtn" class="type-btn">Strength</button>
+                </header>
+                <h2>Choose your workout today</h2>
+                <div class="workout-options" id="cardioOptions">
+                    <button class="exercise-option" onclick="logCardio('Treadmill Running')">Treadmill Running</button>
+                    <button class="exercise-option" onclick="logCardio('Elliptical Training')">Elliptical Training</button>
+                    <button class="exercise-option" onclick="logCardio('Stationary Bike')">Stationary Bike</button>
+                    <button class="exercise-option" onclick="logCardio('Rowing')">Rowing</button>
+                    <button class="exercise-option" onclick="logCardio('Stair Climber')">Stair Climber</button>
+                </div>
+            </div>
+            <div id="cardioDetailSection" class="section" style="display: none;">
+                <h2 id="cardioDetailTitle">Log Cardio Workout</h2>
+                <form id="cardioForm">
+                    <div class="form-group">
+                        <label for="cardioStartTime">Start Time</label>
+                        <input type="time" id="cardioStartTime" name="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardioEndTime">End Time</label>
+                        <input type="time" id="cardioEndTime" name="endTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardioHeartRate">Heart Rate (bpm)</label>
+                        <input type="number" id="cardioHeartRate" name="heartRate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardioRespirationRate">Respiration Rate</label>
+                        <input type="number" id="cardioRespirationRate" name="respirationRate" required>
+                    </div>
+                    <button type="button" onclick="saveCardioWorkout()">Save Workout</button>
+                </form>
+            </div>
+            <div id="strengthSection" class="section" style="display: none;">
+                <h2>Log Strength Workout</h2>
+                <form id="strengthForm">
+                    <div class="form-group">
+                        <label for="strengthExerciseName">Exercise Name</label>
+                        <input type="text" id="strengthExerciseName" name="exerciseName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="strengthDescription">Description</label>
+                        <textarea id="strengthDescription" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="strengthRepetitions">Repetitions</label>
+                        <input type="number" id="strengthRepetitions" name="repetitions" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="strengthWeight">Weight (kg)</label>
+                        <input type="number" id="strengthWeight" name="weight" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="strengthSets">Sets</label>
+                        <input type="number" id="strengthSets" name="sets" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="strengthStatus">Status</label>
+                        <input type="text" id="strengthStatus" name="status" required>
+                    </div>
+                    <button type="button" onclick="saveStrengthWorkout()">Save Workout</button>
+                </form>
+            </div>
+            <div id="statsSection" class="section" style="display: none;">
+                <h2 id="historyLogTitle">History Log</h2>
+                <div id="logList" class="log-list"></div>
+            </div>
+            <div id="profileSection" class="section" style="display: none;">
+                <h2 id="historyLogTitle">Profile</h2>
+                <h2>Hello, <input type="text" id="userName" placeholder="Enter your name"></h2> 
+                <div class="profile-summary">
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span>Weight</span>
+                            <input type="number" id="userWeight" placeholder="Enter your weight" aria-label="Weight"> <small>Kg</small>
+                        </div>
+                        <div class="stat">
+                            <span>Height</span>
+                            <input type="number" id="userHeight" placeholder="Enter your height" aria-label="Height"> <small>cm</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <div class="action">
+                        <label>BMI:</label>
+                        <input type="text" id="bmiValue" value="" readonly>
+                    </div>
+                    <div class="action">
+                        <label>Goal:</label>
+                        <input type="text" id="goalValue" placeholder="Set your goal">
+                        <button onclick="setGoal()">Save Goal</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

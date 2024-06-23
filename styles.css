@@ -1,0 +1,540 @@
+/* Set global styles for the page */
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    background: #e8f0fe; /* Set background color to light blue */
+    display: flex; /* Use Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set body height to viewport height */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    overflow: hidden; /* Prevent body overflow */
+}
+
+/* Set styles for the main application container */
+#app {
+    width: 100%;
+    max-width: 500px; /* Maximum width set to 500px */
+    background: #ffffff; /* Background color set to white */
+    border-radius: 12px; /* Add 12px border radius */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); /* Add slight shadow */
+    display: flex; /* Use Flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    height: 100vh; /* Set height to viewport height */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Set styles for the top navigation bar */
+#top-nav {
+    background: #9AAABF; /* Background color set to primary color */
+    display: flex; /* Use Flexbox layout */
+    justify-content: space-around; /* Distribute items evenly */
+    padding: 15px 0; /* Add 15px padding vertically */
+}
+
+/* Set styles for navigation icon buttons */
+.nav-icon {
+    flex: 1; /* Icon button occupies equal space */
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Display hand cursor on hover */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Set size for navigation icon images */
+.nav-icon img {
+    width: 24px; /* Width set to 24px */
+    height: 24px; /* Height set to 24px */
+}
+
+/* Set styles for exercise type buttons */
+.type-btn {
+    flex: 1; /* Button occupies equal space */
+    padding: 20px 0; /* Add 20px padding vertically */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 16px; /* Font size set to 16px */
+    cursor: pointer; /* Display hand cursor on hover */
+    transition: background 0.3s, color 0.3s; /* Smooth transition for background and text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9AAABF; /* Text color set to primary color */
+    margin: 10px; /* Add 10px margin around button */
+}
+
+/* Set styles for active exercise type button */
+.type-btn.active {
+    background: #C5D2E1; /* Background color for active state set to secondary color */
+    color: white; /* Text color set to white */
+    border-radius: 8px; /* Add 8px border radius */
+}
+
+/* Set styles for the main content area */
+#content {
+    padding: 25px; /* Add 25px padding */
+    flex: 1; /* Main content area occupies remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to top */
+    align-items: center;
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: calc(100vh - 150px); /* Set height to fit viewport height */
+}
+
+/* Set initial display style for sections */
+.section {
+    display: none; /* Initially hidden */
+}
+
+/* Set display style for active sections */
+.section.active {
+    display: flex; /* Use Flexbox layout */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Set styles for History Log title */
+#historyLogTitle {
+    text-align: center; /* Center align text */
+    width: 100%; /* Occupy full width */
+    margin: 20px 0; /* Add vertical margin */
+    font-size: 24px;
+    background: #9AAABF; /* Background color */
+    color: white; /* Text color */
+    padding: 10px; /* Add padding */
+    border-radius: 8px; /* Add border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Fix to the top */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+/* Set styles for log list */
+.log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between items */
+    align-items: center; /* Center align items */
+    width: 100%; /* Occupy full width */
+    max-height: calc(100vh - 200px); /* Set maximum height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 0 10px; /* Add padding */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Update log-item styles to ensure width fits container */
+.log-item {
+    padding: 15px;
+    border: 1px solid #ddd; /* Add border */
+    border-radius: 8px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    width: 100%; /* Occupy full width */
+    max-width: 100%; /* Maximum width set to container width */
+    position: relative; /* Provide positioning context for tags */
+}
+
+/* Set styles for exercise options container */
+.workout-options {
+    display: flex; /* Use Flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    gap: 15px; /* Add 15px spacing */
+}
+
+/* Set styles for exercise option buttons */
+.exercise-option, .strength-option {
+    padding: 20px; /* Add 20px padding */
+    background: #9AAABF; /* Background color set to primary color */
+    color: white; /* Text color set to white */
+    border: none; /* No border */
+    border-radius: 8px; /* Add 8px border radius */
+    cursor: pointer; /* Display hand cursor on hover */
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition for background and shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Add 10px margin around button */
+}
+
+/* Set hover effect for exercise option buttons */
+.exercise-option, .strength-option {
+    background: #C5D2E1; /* Hover background color set to secondary color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add slight shadow effect */
+}
+
+/* Set styles for workout type button container */
+#workout-type {
+    display: flex; /* Use Flexbox layout */
+    justify-content: space-between; /* Distribute buttons horizontally */
+}
+
+/* Set styles for back button */
+.back-btn {
+    padding: 15px; /* Add 15px padding */
+    background: #f0f0f0; /* Background color set to light gray */
+    border: none; /* No border */
+    border-radius: 5px; /* Add 5px border radius */
+    cursor: pointer; /* Display hand cursor on hover */
+    display: inline-block; /* Set as inline-block element */
+    margin: 10px; /* Add 10px margin around button */
+}
+
+/* Set styles for small screen devices */
+@media (max-width: 600px) {
+    #app {
+        max-width: 100%; /* Allow container to stretch to full width */
+        box-shadow: none; /* Remove shadow */
+        border-radius: 0; /* Remove border radius */
+    }
+}
+
+/* Set theme colors */
+:root {
+    --theme-1: #2a2945; /* Theme color 1 */
+    --theme-2: #2f8fcf; /* Theme color 2 */
+    --theme-3: #2f4fcf; /* Theme color 3 */
+}
+
+/* Set styles for body */
+body {
+    height: 100vh; /* Set body height to viewport height */
+    display: flex; /* Use Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: var(--theme-1); /* Set background color to theme color 1 */
+    transition: background-color 1s; /* Smooth transition for background color */
+}
+
+/* Set styles for tab-bar */
+.tab-bar {
+    background-color: white; /* Background color set to white */
+    display: flex; /* Use Flexbox layout */
+    justify-content: space-between; /* Distribute items horizontally */
+    padding: 20px 30px; /* Add 20px padding vertically and 30px padding horizontally */
+    border-radius: 15px; /* Add 15px border radius */
+    position: relative; /* Relative positioning */
+    gap: 25px; /* Add 25px spacing */
+    box-shadow: 0 10px 40px -20px #000000; 
+}
+
+/* Set styles for tab-bar circular indicator */
+.tab-bar_circle-indicator {
+    position: absolute; /* Absolute positioning */
+    width: 60px; /* Width of 60px */
+    height: 60px; /* Height of 60px */
+    border-radius: 50%; /* Set to circular shape */
+    background-color: var(--theme-1); /* Background color using theme color 1 */
+    z-index: 0; /* Set z-index level */
+    transition: all 0.3s; /* Smooth transition for all properties */
+    opacity: 0.7; /* Set opacity to 70% */
+    left: 0; /* Initial position at 0 to ensure centering */
+}
+
+/* Set animation effects */
+.tab-bar_circle-indicator.animate {
+    animation: circleIndicatorAnimate 1s both; /* Apply animation effect */
+}
+
+/* Set styles for tab-bar items and navigation icons */
+.tab-bar_item, .nav-icon {
+    width: 40px; /* Width of 40px */
+    height: 40px; /* Height of 40px */
+    border-radius: 50%; /* Set to circular shape */
+    display: flex; /* Use Flexbox layout */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    z-index: 1; /* Set z-index level */
+}
+
+/* Set keyframe animation */
+@keyframes circleIndicatorAnimate {
+    0% {
+        transform: scale3d(1, 1, 1); /* Initial state */
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1); /* Scale up and distort */
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1); /* Scale down and distort */
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1); /* Scale up and distort */
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1); /* Scale down and distort */
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1); /* Scale up and distort */
+    }
+    100% {
+        transform: scale3d(1, 1, 1); /* Return to original state */
+    }
+}
+
+/* Set styles for content area */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    height: calc(100vh - 150px); /* Set content area height to fit viewport height */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Set styles for workout options container */
+#exerciseSection .workout-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Set styles for exercise option buttons */
+.exercise-option {
+    padding: 20px;
+    background: #9AAABF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Set hover effect */
+.exercise-option:hover {
+    background: #C5D2E1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Update log-item styles */
+.log-item {
+    padding: 15px;
+    border: 1px solid #ddd; /* Add border */
+    border-radius: 8px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+}
+
+/* Update clickable styles */
+.clickable {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0073e6;
+}
+
+/* Update History Log title styles */
+#historyLogTitle {
+    text-align: center; /* Center align text */
+    margin: 20px 0;
+    font-size: 24px;
+    background: #9AAABF; /* Background color */
+    color: white; /* Text color */
+    padding: 10px; /* Padding */
+    border-radius: 8px; /* Border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Styles for profile form group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spacing between items */
+    margin: 20px 0; /* Vertical margin */
+}
+
+/* Styles for form input fields */
+.form-group input,
+.form-group textarea {
+    padding: 10px; /* Padding */
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Border color */
+    background: #f9f9f9; /* Background color */
+    font-size: 16px; /* Font size */
+}
+
+/* Styles for focused form input fields */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0073e6; /* Focus border color */
+}
+
+/* Styles for form buttons */
+form button {
+    padding: 10px; /* Padding */
+    border-radius: 8px;
+    border: none; /* No border */
+    background: #9AAABF; /* Background color */
+    color: white; /* Text color */
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+    margin: 20px 0; /* Vertical margin */
+}
+
+/* Styles for hovered form buttons */
+form button:hover {
+    background: #C5D2E1; /* Hover background color */
+}
+
+/* Update profile styles */
+.profile-summary {
+    padding: 20px; 
+    margin: 20px; 
+    background: #f5f7fa; /* Lighter background color */
+    border-radius: 12px; /* Larger border radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-stats {
+    display: flex; 
+    justify-content: space-around; /* Distribute items evenly */
+    width: 100%; /* Occupy full container width */
+    padding: 10px 0;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Add some spacing between items */
+}
+
+.stat span {
+    font-size: 14px; /* Set label font size */
+    color: #333; /* Set label color */
+}
+
+.stat input {
+    width: 100px; /* Set input field width */
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    text-align: center; /* Center align text */
+}
+
+.profile-actions {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+    width: 100%; 
+}
+
+.profile-actions .action {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 80%; /* Reduce width for centering in container */
+}
+
+.profile-actions .action label {
+    font-size: 16px; /* Set label font size */
+    color: #555; /* Set label color */
+}
+
+.profile-actions .action input {
+    padding: 10px; 
+    border-radius: 8px;
+    border: 1px solid #ccc; 
+    width: 100%; 
+}
+
+.profile-actions .action button {
+    padding: 12px 20px; 
+    border-radius: 8px;
+    border: none; 
+    background: #4CAF50; /* Green background */
+    color: white; 
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+.profile-actions .action button:hover {
+    background: #45a049; /* Darker green */
+}
+
+/* Set styles for the main content area */
+#content {
+    padding: 25px; /* Padding of 25px */
+    flex: 1; /* Main content area occupies remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align to top */
+    align-items: center;
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: calc(100vh - 150px); /* Set height to fit viewport height */
+}
+
+/* Set initial display style for sections */
+.section {
+    display: none; /* Initially hidden */
+}
+
+/* Set display style for active sections */
+.section.active {
+    display: flex; /* Use Flexbox layout */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Set styles for History Log title */
+#historyLogTitle {
+    text-align: center; /* Center align text */
+    width: 100%; /* Occupy full width */
+    margin: 20px 0; /* Vertical margin */
+    font-size: 24px;
+    background: #9AAABF; /* Background color */
+    color: white; /* Text color */
+    padding: 10px; /* Padding */
+    border-radius: 8px; /* Border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Fixed at the top */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+/* Tag styles */
+.tag {
+    position: absolute;
+    top: 10px; /* 10px from the top */
+    right: 10px; /* 10px from the right */
+    background: #4CAF50; /* Tag background color */
+    color: white; /* Tag text color */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer; /* Display hand cursor on hover */
+    text-align: center;
+}
+
+.tag.strength {
+    background: #FF5733; /* Background color for strength tag */
+}
+
+.tag.cardio {
+    background: #4CAF50; /* Background color for cardio tag */
+}
+
+/* Update clickable styles */
+.clickable {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0073e6;
+}
